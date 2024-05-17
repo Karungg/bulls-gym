@@ -5,55 +5,8 @@ Home
 <?= $this->endSection(); ?>
 
 <?= $this->section('content'); ?>
-<!-- Menu -->
-<div class="menu">
-    <div class="container flex">
 
-        <div class="mobile-btn">
-            <ion-icon name="grid"></ion-icon>
-        </div>
-        <div class="logo">
-            <img src="<?= base_url('assets/') ?>img/logo.png" alt="" />
-        </div>
-
-        <ul class="nav">
-            <li class="nav-item"><a href="#home">Home</a></li>
-            <li class="nav-item"><a href="#why-us">Features</a></li>
-            <li class="nav-item"><a href="#explore">Explore</a></li>
-            <li class="nav-item"><a href="#discount">Register</a></li>
-        </ul>
-
-        <a href="<?= base_url('register') ?>" class="btn">Register</a>
-    </div>
-</div>
-<!-- End Menu -->
-
-<!-- Header -->
-<header class="header" id="home">
-    <div class="container flex">
-        <div class="text">
-            <h1 class="mb">
-                Complete
-                <span>
-                    Daily
-                </span> <br />
-                <span>Workout</span> At Home.!
-            </h1>
-
-            <p class="mb">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima
-                sunt sed tempora neque molestiae corrupti nobis harum ullam eos nam!
-            </p>
-
-            <a href="#" class="btn mt">Start Now</a>
-        </div>
-
-        <div class="visual">
-            <img src="<?= base_url('assets/') ?>img/1.png" alt="" />
-        </div>
-    </div>
-</header>
-<!-- End Header -->
+<?= $this->include('partials/home-header'); ?>
 
 <!-- Why Us -->
 <div class="section" id="why-us">
@@ -200,14 +153,5 @@ Home
     </div>
 </div>
 <!-- End Discount -->
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container flex">
-        <p class="tertiary">
-            &copy; 2023 Programmer cw. All Rights Reserved.
-        </p>
-    </div>
-</footer>
 
 <?= $this->endSection(); ?>
