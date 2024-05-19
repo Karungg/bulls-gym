@@ -8,12 +8,12 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item <?= uri_string() == 'dashboard' ? 'active' : '' ?>">
-                <a href="<?= base_url('dashboard') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            <li class="nav-item <?= uri_string() == 'admin' ? 'active' : '' ?>">
+                <a href="<?= base_url('admin') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="menu-header">Master Data</li>
             <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Master</span></a>
+                <a href="<?= base_url('admin/packages') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Paket</span></a>
             </li>
         </ul>
     </aside>

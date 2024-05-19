@@ -1,5 +1,9 @@
 <?= $this->extend('layouts/appLayout'); ?>
 
+<?= $this->section('title'); ?>
+Dashboard
+<?= $this->endSection(); ?>
+
 <?= $this->section('header'); ?>
 Dashboard
 <?= $this->endSection(); ?>

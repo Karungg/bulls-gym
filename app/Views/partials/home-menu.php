@@ -10,7 +10,7 @@
         </div>
 
         <ul class="nav">
-            <li class="nav-item"><a href="#home">Home</a></li>
+            <li class="nav-item"><a href="<?= base_url() ?>">Home</a></li>
             <li class="nav-item"><a href="#why-us">Features</a></li>
             <li class="nav-item"><a href="#explore">Explore</a></li>
             <li class="nav-item"><a href="#discount">Register</a></li>
