@@ -18,7 +18,7 @@ Paket
                         <button class="btn btn-icon icon-left btn-danger mr-2"><i class="far fa-file"></i> Pdf</btn>
                             <button class="btn btn-icon icon-left btn-success"><i class="far fa-file"></i> Excel</btn>
                     </div>
-                    <button class="btn btn-icon icon-left btn-primary"><i class="fas fa-plus"></i> Tambah Data Paket</btn>
+                    <a href="<?= base_url('admin/packages/create') ?>" class="btn btn-icon icon-left btn-primary"><i class="fas fa-plus"></i> Tambah Data Paket</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -32,7 +32,7 @@ Paket
                                     <th>Deskripsi</th>
                                     <th>Durasi</th>
                                     <th>Harga</th>
-                                    <th>Action</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,7 +41,7 @@ Paket
                                 foreach ($packages as $package) :
                                 ?>
                                     <tr>
-                                        <td>
+                                        <td class="text-center">
                                             <?= $no ?>
                                         </td>
                                         <td><?= $package['nama_paket'] ?></td>
@@ -52,7 +52,7 @@ Paket
                                             <?= $package['durasi'] ?> Bulan
                                         </td>
                                         <td>Rp. <?= $package['harga'] ?></td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="#" class="btn btn-success">Ubah</a>
                                             <a href="#" class="btn btn-danger">Hapus</a>
                                         </td>

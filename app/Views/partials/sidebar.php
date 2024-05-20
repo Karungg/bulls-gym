@@ -12,7 +12,7 @@
                 <a href="<?= base_url('admin') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="menu-header">Master Data</li>
-            <li class="nav-item">
+            <li class="nav-item <?= uri_string() == 'admin/packages' ? 'active' : '' ?>">
                 <a href="<?= base_url('admin/packages') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Paket</span></a>
             </li>
         </ul>
