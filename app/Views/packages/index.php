@@ -12,6 +12,16 @@ Paket
 <div class="section-body">
     <div class="row">
         <div class="col-12">
+            <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                <div class="alert alert-success alert-dismissible show fade">
+                    <div class="alert-body">
+                        <button class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                        </button>
+                        <?= session()->getFlashdata('success') ?>
+                    </div>
+                </div>
+            <?php endif ?>
             <div class="card">
                 <div class="d-flex card-header">
                     <div class="mr-auto">
@@ -53,8 +63,12 @@ Paket
                                         </td>
                                         <td>Rp. <?= $package['harga'] ?></td>
                                         <td class="text-center">
-                                            <a href="#" class="btn btn-success">Ubah</a>
-                                            <a href="#" class="btn btn-danger">Hapus</a>
+                                            <a href="<?= base_url('admin/packages/' . $package['id_paket']) ?>/edit" class="btn btn-success">Ubah</a>
+                                            <form action="<?= base_url('admin/packages/delete/' . $package['id_paket']) ?>" method="post" onsubmit="return confirm('Hapus' + ' <?= $package['nama_paket'] ?>?');" style="display: inline;">
+                                                <?= csrf_field() ?>
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-danger">Hapus</a>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php

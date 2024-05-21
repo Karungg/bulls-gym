@@ -13,4 +13,7 @@ $routes->group('admin', static function ($routes) {
     $routes->get('packages', 'PackageController::index');
     $routes->get('packages/create', 'PackageController::create');
     $routes->post('packages/create', 'PackageController::store');
+    $routes->get('packages/(:num)/edit', 'PackageController::edit/$1');
+    $routes->put('packages/(:num)/edit', 'PackageController::update');
+    $routes->delete('packages/delete/(:num)', 'PackageController::destroy/$1');
 });

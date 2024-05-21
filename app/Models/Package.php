@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class Package extends Model
 {
     protected $table            = 'packages';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'id_paket';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;

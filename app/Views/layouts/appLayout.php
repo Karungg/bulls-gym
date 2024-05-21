@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/summernote/dist/summernote-bs4.css">
     <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/izitoast/dist/css/iziToast.min.css">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('stisla/') ?>assets/css/style.css">
@@ -68,7 +67,6 @@
     <script src="<?= base_url('stisla/') ?>node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url('stisla/') ?>node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="<?= base_url('stisla/') ?>node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
-    <script src="<?= base_url('stisla/') ?>node_modules/izitoast/dist/js/iziToast.min.js"></script>
 
     <!-- Template JS File -->
     <script src="<?= base_url('stisla/') ?>assets/js/scripts.js"></script>
@@ -77,7 +75,6 @@
     <!-- Page Specific JS File -->
     <script src="<?= base_url('stisla/') ?>assets/js/page/index-0.js"></script>
     <script src="<?= base_url('stisla/') ?>assets/js/page/modules-datatables.js"></script>
-    <script src="<?= base_url('stisla/') ?>assets/js/page/modules-toastr.js"></script>
 </body>
 
 </html>

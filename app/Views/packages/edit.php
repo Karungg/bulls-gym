@@ -1,11 +1,11 @@
 <?= $this->extend('layouts/appLayout'); ?>
 
 <?= $this->section('title'); ?>
-Tambah Paket
+Edit Paket
 <?= $this->endSection(); ?>
 
 <?= $this->section('header'); ?>
-Tambah Data Paket
+Edit Data Paket
 <?= $this->endSection(); ?>
 
 <?= $this->section('content'); ?>
@@ -26,35 +26,38 @@ Tambah Data Paket
                             <?php } ?>
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="<?= base_url('admin/packages/create') ?>" method="post">
+                                    <form action="<?= base_url('admin/packages/' . $package['id_paket'] . '/edit') ?>" method="post">
+                                        <?= csrf_field() ?>
+                                        <input type="hidden" name="_method" value="PUT">
+                                        <input type="hidden" name="id_paket" value="<?= $package['id_paket'] ?>">
                                         <div class="form-group row mb-4">
                                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Paket</label>
                                             <div class="col-sm-12 col-md-7">
-                                                <input type="text" name="nama_paket" class="form-control">
+                                                <input type="text" name="nama_paket" class="form-control" value="<?= $package['nama_paket'] ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row mb-4">
                                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Durasi</label>
                                             <div class="col-sm-12 col-md-7">
-                                                <input type="number" name="durasi" class="form-control">
+                                                <input type="number" name="durasi" class="form-control" value="<?= $package['durasi'] ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row mb-4">
                                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga</label>
                                             <div class="col-sm-12 col-md-7">
-                                                <input type="number" name="harga" class="form-control">
+                                                <input type="number" name="harga" class="form-control" value="<?= $package['harga'] ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row mb-4">
                                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi</label>
                                             <div class="col-sm-12 col-md-7">
-                                                <textarea name="deskripsi" class="summernote"></textarea>
+                                                <textarea name="deskripsi" class="summernote"><?= $package['deskripsi'] ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-4">
                                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                             <div class="col-sm-12 col-md-7">
-                                                <button class="btn btn-primary">Tambah</button>
+                                                <button class="btn btn-primary">Ubah</button>
                                             </div>
                                         </div>
                                     </form>
