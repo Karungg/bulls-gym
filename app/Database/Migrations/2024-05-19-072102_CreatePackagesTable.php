@@ -31,11 +31,11 @@ class CreatePackagesTable extends Migration
             ]
         ]);
         $this->forge->addKey('id_paket', true);
-        $this->forge->createTable('packages');
+        $this->forge->createTable('paket');
     }
 
     public function down()
     {
-        $this->forge->dropTable('packages');
+        $this->forge->dropTable('paket');
     }
 }
