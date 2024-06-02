@@ -15,6 +15,9 @@
             <li class="nav-item <?= uri_string() == 'admin/packages' ? 'active' : '' ?>">
                 <a href="<?= base_url('admin/packages') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Paket</span></a>
             </li>
+            <li class="nav-item <?= uri_string() == 'admin/memberships' ? 'active' : '' ?>">
+                <a href="<?= base_url('admin/memberships') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Membership</span></a>
+            </li>
         </ul>
     </aside>
 </div>
