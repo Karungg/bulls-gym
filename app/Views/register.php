@@ -4,19 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title><?= $this->renderSection('title') ?> | Bulls Gym</title>
+    <title>Register &mdash; Stisla</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/jqvmap/dist/jqvmap.min.css">
-    <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/weathericons/css/weather-icons.min.css">
-    <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/weathericons/css/weather-icons-wind.min.css">
-    <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/summernote/dist/summernote-bs4.css">
-    <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url('stisla/') ?>node_modules/selectric/public/selectric.css">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url('stisla/') ?>assets/css/style.css">
@@ -25,394 +20,219 @@
 
 <body>
     <div id="app">
-        <div class="main-wrapper">
-            <!-- Main Content -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <button class="btn btn-primary">Kembali</button>
+        <section class="section">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="login-brand">
+                            <img src="<?= base_url() ?>/assets/img/logo.png" alt="logo" width="100" class="shadow-light rounded-circle">
                         </div>
-                        <div class="card-body">
-                            <div class="row mt-4">
-                                <div class="col-12 col-lg-8 offset-lg-2">
-                                    <div class="wizard-steps">
-                                        <div class="wizard-step wizard-step-active">
-                                            <div class="wizard-step-icon">
-                                                <i class="far fa-user"></i>
+
+                        <div class="card card-primary">
+                            <div class="card-body">
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <div class="wizard-steps">
+                                            <div class="wizard-step wizard-step-active">
+                                                <div class="wizard-step-icon">
+                                                    <i class="far fa-user"></i>
+                                                </div>
+                                                <div class="wizard-step-label">Data Diri</div>
                                             </div>
-                                            <div class="wizard-step-label">Data Diri</div>
-                                        </div>
-                                        <div class="wizard-step">
-                                            <div class="wizard-step-icon">
-                                                <i class="fas fa-box-open"></i>
+                                            <div class="wizard-step">
+                                                <div class="wizard-step-icon">
+                                                    <i class="fas fa-box-open"></i>
+                                                </div>
+                                                <div class="wizard-step-label">Pilih Paket</div>
                                             </div>
-                                            <div class="wizard-step-label">Pilih Paket</div>
-                                        </div>
-                                        <div class="wizard-step">
-                                            <div class="wizard-step-icon">
-                                                <i class="fas fa-money-bill"></i>
+                                            <div class="wizard-step">
+                                                <div class="wizard-step-icon">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                                <div class="wizard-step-label">Buat Akun Baru</div>
                                             </div>
-                                            <div class="wizard-step-label">Pembayaran</div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <form action="<?= base_url('register') ?>" method="post" class="wizard-content mt-2">
+                                    <!-- Step 1 -->
+                                    <div class="wizard-pane">
 
-                            <form action="" class="wizard-content mt-2">
-                                <!-- Step 1 -->
-                                <div class="wizard-pane">
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Name</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <input type="text" name="nama_lengkap" class="form-control" />
+                                        <div class="form-group">
+                                            <label for="nama_lengkap">Nama Lengkap</label>
+                                            <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap">
                                             <div class="invalid-feedback">
                                                 Nama lengkap harus diisi.
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Jenis Kelamin</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="pria" checked />
-                                                <label class="form-check-label" for="pria">
-                                                    Pria
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="wanita" checked />
-                                                <label class="form-check-label" for="wanita">
-                                                    Wanita
-                                                </label>
-                                            </div>
-                                            <div class="invalid-feedback">
-                                                Jenis kelamin harus diisi.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Email</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <input type="email" name="email" class="form-control" />
-                                            <div class="invalid-feedback">Email harus diisi.</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Nomor Telepon</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <input type="number" name="no_telp" class="form-control" />
-                                            <div class="invalid-feedback">
-                                                Nomor telepon harus diisi.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-4 text-md-right text-left mt-2">Alamat</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <textarea class="form-control" name="alamat"></textarea>
-                                            <div class="invalid-feedback">Alamat harus diisi.</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Tanggal Lahir</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <input type="date" name="tgl_lahir" class="form-control" />
-                                            <div class="invalid-feedback">
-                                                Tanggal lahir harus diisi.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Nomor KTP</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <input type="number" name="no_ktp" class="form-control" />
-                                            <div class="invalid-feedback">
-                                                Nomor KTP harus diisi.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Foto Diri</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <input type="file" name="foto_diri" class="form-control" />
-                                            <div class="invalid-feedback">
-                                                Foto diri harus diisi.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Foto KTP</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <input type="file" name="foto_ktp" class="form-control" />
-                                            <div class="invalid-feedback">
-                                                Foto KTP harus diisi.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-lg-4 col-md-6 text-right">
-                                            <button type="button" onclick="validate(this)" class="btn btn-icon icon-right btn-primary btn-next">
-                                                Selanjutnya <i class="fas fa-arrow-right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Step 1 -->
 
-                                <!-- Step 2 -->
-                                <div class="wizard-pane d-none">
-                                    <div class="row justify-content-center">
-                                        <div class="col-12 col-md-4 col-lg-4">
-                                            <div class="pricing">
-                                                <div class="pricing-title">Enterprise</div>
-                                                <div class="pricing-padding">
-                                                    <div class="pricing-price">
-                                                        <div>$499</div>
-                                                        <div>per month</div>
-                                                    </div>
-                                                    <div class="pricing-details">
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Unlimited user agent
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Core features
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                8TB storage
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Unlimited custom domain
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Lifetime Support
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label for="tgl_lahir">Tanggal Lahir</label>
+                                                <input id="tgl_lahir" type="date" class="form-control" name="tgl_lahir">
+                                                <div class="invalid-feedback">
+                                                    Tanggal lahir harus diisi.
                                                 </div>
-                                                <div class="pricing-cta">
-                                                    <label class="selectgroup-item">
-                                                        <input type="radio" name="icon-input" value="1" class="selectgroup-input" checked="" />
-                                                        <span class="selectgroup-button selectgroup-button-icon">
-                                                            Pilih Paket</span>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label for="jenis_kelamin">Jenis Kelamin</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="pria" checked />
+                                                    <label class="form-check-label" for="pria">
+                                                        Pria
                                                     </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="wanita" checked />
+                                                    <label class="form-check-label" for="wanita">
+                                                        Wanita
+                                                    </label>
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Jenis kelamin harus diisi.
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-4 col-lg-4">
-                                            <div class="pricing">
-                                                <div class="pricing-title">Enterprise</div>
-                                                <div class="pricing-padding">
-                                                    <div class="pricing-price">
-                                                        <div>$499</div>
-                                                        <div>per month</div>
-                                                    </div>
-                                                    <div class="pricing-details">
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Unlimited user agent
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Core features
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                8TB storage
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Unlimited custom domain
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Lifetime Support
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="pricing-cta">
-                                                    <label class="selectgroup-item">
-                                                        <input type="radio" name="icon-input" value="1" class="selectgroup-input" />
-                                                        <span class="selectgroup-button selectgroup-button-icon">
-                                                            Pilih Paket</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4 col-lg-4">
-                                            <div class="pricing">
-                                                <div class="pricing-title">Enterprise</div>
-                                                <div class="pricing-padding">
-                                                    <div class="pricing-price">
-                                                        <div>$499</div>
-                                                        <div>per month</div>
-                                                    </div>
-                                                    <div class="pricing-details">
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Unlimited user agent
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Core features
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                8TB storage
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Unlimited custom domain
-                                                            </div>
-                                                        </div>
-                                                        <div class="pricing-item">
-                                                            <div class="pricing-item-icon">
-                                                                <i class="fas fa-check"></i>
-                                                            </div>
-                                                            <div class="pricing-item-label">
-                                                                Lifetime Support
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="pricing-cta">
-                                                    <label class="selectgroup-item is-invalid">
-                                                        <input type="radio" name="icon-input" value="1" class="selectgroup-input" />
-                                                        <span class="selectgroup-button selectgroup-button-icon">
-                                                            Pilih Paket</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-lg-4 col-md-6 text-right">
-                                            <button type="button" onclick="showPrevious(this)" class="btn btn-icon icon-right btn-primary btn-previous">
-                                                <i class="fas fa-arrow-left"></i> Sebelumnya
-                                            </button>
-                                            <button type="button" onclick="validate(this)" class="btn btn-icon icon-right btn-primary btn-next">
-                                                Selanjutnya <i class="fas fa-arrow-right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Step 2 -->
 
-                                <!-- Step 3 -->
-                                <div class="wizard-pane d-none">
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Name 3</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <input type="text" name="name" class="form-control" />
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label for="email" class="d-block">Email</label>
+                                                <input id="email" type="email" class="form-control" name="email">
+                                                <div class="invalid-feedback">
+                                                    Email harus diisi.
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label for="no_telp" class="d-block">Nomor Telepon</label>
+                                                <input id="no_telp" type="number" class="form-control" name="no_telp">
+                                                <div class="invalid-feedback">
+                                                    Nomor telepon harus diisi.
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-md-4 text-md-right text-left">Email</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <input type="email" name="email" class="form-control" />
+
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label for="no_ktp">Nomor KTP</label>
+                                                <input id="no_ktp" type="number" class="form-control" name="no_ktp">
+                                                <div class="invalid-feedback">
+                                                    Nomor KTP harus diisi.
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label for="alamat">Alamat</label>
+                                                <textarea id="alamat" class="form-control" name="alamat"></textarea>
+                                                <div class="invalid-feedback">Alamat harus diisi.</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-4 text-md-right text-left mt-2">Address</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <textarea class="form-control" name="address"></textarea>
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label for="foto_ktp">Foto KTP</label>
+                                                <input id="foto_ktp" type="file" class="form-control" name="foto_ktp">
+                                                <div class="invalid-feedback">
+                                                    Foto KTP harus diisi.
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label>Foto Diri</label>
+                                                <input id="foto_diri" type="file" class="form-control" name="foto_diri">
+                                                <div class="invalid-feedback">
+                                                    Foto diri harus diisi.
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-4 text-md-right text-left mt-2">Role</label>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="selectgroup w-100">
-                                                <label class="selectgroup-item">
-                                                    <input type="radio" name="value" value="developer" class="selectgroup-input" />
-                                                    <span class="selectgroup-button">Developer</span>
-                                                </label>
-                                                <label class="selectgroup-item">
-                                                    <input type="radio" name="value" value="ceo" class="selectgroup-input" />
-                                                    <span class="selectgroup-button">CEO</span>
-                                                </label>
+                                        <div class="form-group row">
+                                            <div class="col-12 text-right">
+                                                <button type="button" onclick="validate(this)" class="btn btn-icon icon-right btn-primary btn-next">
+                                                    Selanjutnya <i class="fas fa-arrow-right"></i>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-lg-4 col-md-6 text-right">
-                                            <button type="button" onclick="showPrevious(this)" class="btn btn-icon icon-right btn-primary btn-previous">
-                                                <i class="fas fa-arrow-left"></i> Sebelumnya
-                                            </button>
-                                            <button type="submit" class="btn btn-icon icon-right btn-primary btn-next">
-                                                Kirim
-                                            </button>
+                                    <!-- End Step 1 -->
+
+                                    <!-- Step 2 -->
+                                    <div class="wizard-pane d-none">
+                                        <div class="row justify-content-center">
+                                            <?php foreach ($packages as $package) : ?>
+                                                <div class="col-12 col-md-4 col-lg-4">
+                                                    <div class="pricing">
+                                                        <div class="pricing-title"><?= $package['nama_paket'] ?></div>
+                                                        <div class="pricing-padding">
+                                                            <div class="pricing-price">
+                                                                <h4>Rp. <?= number_format($package['harga']) ?></h4>
+                                                                <div><?= $package['durasi'] ?> Bulan</div>
+                                                            </div>
+                                                            <div class="pricing-details">
+                                                                <div class="pricing-item">
+                                                                    <div class="pricing-item-label">
+                                                                        <?= $package['deskripsi'] ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pricing-cta">
+                                                            <label class="selectgroup-item">
+                                                                <input type="radio" name="icon-input" value="<?= $package['id_paket'] ?>" class="selectgroup-input" checked="" />
+                                                                <span class="selectgroup-button selectgroup-button-icon">
+                                                                    Pilih Paket</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach ?>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-12 text-right">
+                                                <button type="button" onclick="showPrevious(this)" class="btn btn-icon icon-right btn-primary btn-previous">
+                                                    <i class="fas fa-arrow-left"></i> Sebelumnya
+                                                </button>
+                                                <button type="button" onclick="validate(this)" class="btn btn-icon icon-right btn-primary btn-next">
+                                                    Selanjutnya <i class="fas fa-arrow-right"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- End Step 3 -->
-                            </form>
+                                    <!-- End Step 2 -->
+
+                                    <!-- Step 3 -->
+                                    <div class="wizard-pane d-none">
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+                                            <input id="username" type="text" class="form-control" name="username">
+                                            <div class="invalid-feedback">
+                                                Username harus diisi.
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Password</label>
+                                            <input id="password" type="password" class="form-control" name="password">
+                                            <div class="invalid-feedback">
+                                                Username harus diisi.
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-12 text-right">
+                                                <button type="button" onclick="showPrevious(this)" class="btn btn-icon icon-right btn-primary btn-previous">
+                                                    <i class="fas fa-arrow-left"></i> Sebelumnya
+                                                </button>
+                                                <button type="submit" class="btn btn-icon icon-right btn-primary btn-next">
+                                                    Kirim
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Step 3 -->
+                                </form>
+                            </div>
+                        </div>
+                        <div class="simple-footer">
+                            Copyright &copy; Stisla 2018
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <!-- General JS Scripts -->
@@ -424,23 +244,15 @@
     <script src="<?= base_url('stisla/') ?>assets/js/stisla.js"></script>
 
     <!-- JS Libraies -->
-    <script src="<?= base_url('stisla/') ?>node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
-    <script src="<?= base_url('stisla/') ?>node_modules/chart.js/dist/Chart.min.js"></script>
-    <script src="<?= base_url('stisla/') ?>node_modules/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="<?= base_url('stisla/') ?>node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="<?= base_url('stisla/') ?>node_modules/summernote/dist/summernote-bs4.js"></script>
-    <script src="<?= base_url('stisla/') ?>node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
-    <script src="<?= base_url('stisla/') ?>node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url('stisla/') ?>node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="<?= base_url('stisla/') ?>node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
+    <script src="<?= base_url('stisla/') ?>node_modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
+    <script src="<?= base_url('stisla/') ?>node_modules/selectric/public/jquery.selectric.min.js"></script>
 
     <!-- Template JS File -->
     <script src="<?= base_url('stisla/') ?>assets/js/scripts.js"></script>
     <script src="<?= base_url('stisla/') ?>assets/js/custom.js"></script>
 
     <!-- Page Specific JS File -->
-    <script src="<?= base_url('stisla/') ?>assets/js/page/index-0.js"></script>
-    <script src="<?= base_url('stisla/') ?>assets/js/page/modules-datatables.js"></script>
+    <script src="<?= base_url('stisla/') ?>assets/js/page/auth-register.js"></script>
     <script src="<?= base_url('assets/') ?>js/wizard.js"></script>
 </body>
 

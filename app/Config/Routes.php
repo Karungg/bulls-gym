@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/register', 'RegisterController::index');
+$routes->post('/register', 'RegisterController::register');
 
 $routes->group('admin', static function ($routes) {
     $routes->get('', 'DashboardController::index');

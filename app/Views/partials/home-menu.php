@@ -16,7 +16,10 @@
             <li class="nav-item"><a href="#discount">Register</a></li>
         </ul>
 
-        <a href="<?= base_url('register') ?>" class="btn">Register</a>
+        <div>
+            <a href="<?= base_url('register') ?>" class="btn">Register</a>
+            <a href="<?= base_url('login') ?>" class="btn">Login</a>
+        </div>
     </div>
 </div>
 <!-- End Menu -->
