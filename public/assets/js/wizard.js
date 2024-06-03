@@ -9,17 +9,17 @@ $(document).ready(function () {
 function validate(button) {
   var wizardSection = $(button).closest(".wizard-pane");
   var valid = true;
-  // $(wizardSection)
-  //   .find("input")
-  //   .each(function () {
-  //     if ($(this).val() == "") {
-  //       valid = false;
-  //       $(this).addClass("is-invalid");
-  //       if ($(".wizard-pane textarea").val() == "") {
-  //         $(".wizard-pane textarea").addClass("is-invalid");
-  //       }
-  //     }
-  //   });
+  $(wizardSection)
+    .find("input")
+    .each(function () {
+      if ($(this).val() == "") {
+        valid = false;
+        $(this).addClass("is-invalid");
+        if ($(".wizard-pane textarea").val() == "") {
+          $(".wizard-pane textarea").addClass("is-invalid");
+        }
+      }
+    });
   if (valid == true) {
     showNextWizardSection(wizardSection);
   }

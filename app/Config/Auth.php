@@ -313,7 +313,7 @@ class Auth extends \Myth\Auth\Config\Auth
      *
      * @var int
      */
-    public $minimumPasswordLength = 8;
+    public $minimumPasswordLength = 4;
 
     /**
      * --------------------------------------------------------------------
