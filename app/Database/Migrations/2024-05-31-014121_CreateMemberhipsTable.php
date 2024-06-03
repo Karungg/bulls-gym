@@ -51,12 +51,14 @@ class CreateMemberhipsTable extends Migration
             ],
             'id_paket' => [
                 'type' => 'INT',
-                'constraint'     => 11,
-                'unsigned'       => true,
+                'constraint' => '11',
+            ],
+            'id_user' => [
+                'type' => 'INT',
+                'constraint' => '11',
             ],
         ]);
         $this->forge->addKey('id_membership', true);
-        $this->forge->addForeignKey('id_paket', 'paket', 'id_paket');
         $this->forge->createTable('memberships');
     }
 

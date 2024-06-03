@@ -7,12 +7,15 @@ use CodeIgniter\Model;
 class Membership extends Model
 {
     protected $table            = 'memberships';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'id_membership';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'nama_lengkap', 'email', 'no_telp', 'jenis_kelamin', 'tgl_lahir', 'no_ktp',
+        'alamat', 'foto_diri', 'foto_ktp', 'id_paket', 'id_user'
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

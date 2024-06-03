@@ -54,7 +54,15 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php
+
+                                helper('form');
+                                $packageModel = new App\Models\Package();
+                                $packages = $packageModel->findAll();
+
+                                ?>
                                 <?= form_open_multipart('register', ['class' => 'wizard-content mt-2']) ?>
+                                <?= csrf_field() ?>
                                 <!-- Step 1 -->
                                 <div class="wizard-pane">
 
@@ -94,14 +102,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <label for="alamat">Alamat</label>
+                                        <textarea id="alamat" class="form-control" name="alamat"></textarea>
+                                        <div class="invalid-feedback">Alamat harus diisi.</div>
+                                    </div>
+
                                     <div class="row">
-                                        <div class="form-group col-6">
-                                            <label for="email" class="d-block">Email</label>
-                                            <input id="email" type="email" class="form-control" name="email">
-                                            <div class="invalid-feedback">
-                                                Email harus diisi.
-                                            </div>
-                                        </div>
                                         <div class="form-group col-6">
                                             <label for="no_telp" class="d-block">Nomor Telepon</label>
                                             <input id="no_telp" type="number" class="form-control" name="no_telp">
@@ -109,20 +116,12 @@
                                                 Nomor telepon harus diisi.
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row">
                                         <div class="form-group col-6">
                                             <label for="no_ktp">Nomor KTP</label>
                                             <input id="no_ktp" type="number" class="form-control" name="no_ktp">
                                             <div class="invalid-feedback">
                                                 Nomor KTP harus diisi.
                                             </div>
-                                        </div>
-                                        <div class="form-group col-6">
-                                            <label for="alamat">Alamat</label>
-                                            <textarea id="alamat" class="form-control" name="alamat"></textarea>
-                                            <div class="invalid-feedback">Alamat harus diisi.</div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -198,18 +197,21 @@
                                 <!-- Step 3 -->
                                 <div class="wizard-pane d-none">
                                     <div class="form-group">
-                                        <label for="username">Username</label>
-                                        <input id="username" type="text" class="form-control" name="username" required>
-                                        <div class="invalid-feedback">
-                                            Username harus diisi.
-                                        </div>
+                                        <label for="email"><?= lang('Auth.email') ?></label>
+                                        <input id="email" name="email" type="text" class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" aria-describedby="emailHelp" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>">
+                                        <small id="emailHelp" class="form-text text-muted"><?= lang('Auth.weNeverShare') ?></small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input id="password" type="password" class="form-control" name="password" required>
-                                        <div class="invalid-feedback">
-                                            Username harus diisi.
-                                        </div>
+                                        <label for="username"><?= lang('Auth.username') ?></label>
+                                        <input id="username" type="text" class="form-control <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password"><?= lang('Auth.password') ?></label>
+                                        <input id="password" type="password" class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" name="password" placeholder="<?= lang('Auth.password') ?>" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pass_confirm"><?= lang('Auth.repeatPassword') ?></label>
+                                        <input id="pass_confirm" type="password" class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" name="pass_confirm" placeholder="<?= lang('Auth.repeatPassword') ?>" autocomplete="off">
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12 text-right">
