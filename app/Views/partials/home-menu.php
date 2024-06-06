@@ -17,8 +17,16 @@
         </ul>
 
         <div>
-            <a href="<?= base_url('register') ?>" class="btn">Register</a>
-            <a href="<?= base_url('login') ?>" class="btn">Login</a>
+            <?php if (!logged_in()) { ?>
+                <a href="<?= base_url('register') ?>" class="btn">Register</a>
+                <a href="<?= base_url('login') ?>" class="btn">Login</a>
+            <?php } else { ?>
+                <?php if (in_groups('admin')) { ?>
+                    <a href="<?= base_url('admin') ?>" class="btn">Dashboard</a>
+                <?php } else { ?>
+                    <a href="<?= base_url('my-membership') ?>" class="btn">Membership Saya</a>
+                <?php } ?>
+            <?php } ?>
         </div>
     </div>
 </div>

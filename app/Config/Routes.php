@@ -7,7 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-$routes->group('admin', static function ($routes) {
+$routes->group('admin', ['filter' => 'role:admin'], static function ($routes) {
     $routes->get('', 'DashboardController::index');
     // Route packages
     $routes->get('packages', 'PackageController::index');

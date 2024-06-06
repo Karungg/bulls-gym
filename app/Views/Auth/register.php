@@ -198,7 +198,7 @@
                                 <div class="wizard-pane d-none">
                                     <div class="form-group">
                                         <label for="email"><?= lang('Auth.email') ?></label>
-                                        <input id="email" name="email" type="text" class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" aria-describedby="emailHelp" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>">
+                                        <input id="email" name="email" type="email" class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" aria-describedby="emailHelp" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>">
                                         <small id="emailHelp" class="form-text text-muted"><?= lang('Auth.weNeverShare') ?></small>
                                     </div>
                                     <div class="form-group">
