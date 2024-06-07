@@ -25,6 +25,7 @@
                     <a href="<?= base_url('admin') ?>" class="btn">Dashboard</a>
                 <?php } else { ?>
                     <a href="<?= base_url('my-membership') ?>" class="btn">Membership Saya</a>
+                    <a href="<?= base_url('logout') ?>" onclick="return confirm('Logout?')" class="btn">Logout</a>
                 <?php } ?>
             <?php } ?>
         </div>

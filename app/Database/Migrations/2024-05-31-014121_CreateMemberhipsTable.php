@@ -57,6 +57,14 @@ class CreateMemberhipsTable extends Migration
                 'type' => 'INT',
                 'constraint' => '11',
             ],
+            'created_at' => [
+                'type' => 'datetime',
+                'null' => true
+            ],
+            'updated_at' => [
+                'type' => 'datetime',
+                'null' => true
+            ],
         ]);
         $this->forge->addKey('id_membership', true);
         $this->forge->createTable('memberships');
