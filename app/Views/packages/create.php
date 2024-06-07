@@ -19,45 +19,54 @@ Tambah Data Paket
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <?php if (isset($validation)) { ?>
-                                <div class="alert alert-danger" role="alert">
-                                    <?php echo $validation->listErrors() ?>
-                                </div>
-                            <?php } ?>
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="<?= base_url('admin/packages/create') ?>" method="post">
-                                        <div class="form-group row mb-4">
-                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Paket</label>
-                                            <div class="col-sm-12 col-md-7">
-                                                <input type="text" name="nama_paket" class="form-control">
+                                    <?php $errors = validation_errors() ?>
+                                    <?= form_open('admin/packages/create') ?>
+                                    <?= csrf_field() ?>
+                                    <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama Paket</label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <input type="text" name="nama_paket" class="form-control <?= (isset($errors['nama_paket'])) ? 'is-invalid' : '' ?>" value="<?= old('nama_paket') ?>">
+                                            <div class="invalid-feedback">
+                                                <?= validation_show_error('nama_paket') ?>
                                             </div>
                                         </div>
-                                        <div class="form-group row mb-4">
-                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Durasi</label>
-                                            <div class="col-sm-12 col-md-7">
-                                                <input type="number" name="durasi" class="form-control">
+                                    </div>
+                                    <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Durasi</label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <input type="number" name="durasi" class="form-control <?= (isset($errors['durasi'])) ? 'is-invalid' : '' ?>" value="<?= old('durasi') ?>">
+                                            <div class="invalid-feedback">
+                                                <?= validation_show_error('durasi') ?>
                                             </div>
                                         </div>
-                                        <div class="form-group row mb-4">
-                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga</label>
-                                            <div class="col-sm-12 col-md-7">
-                                                <input type="number" name="harga" class="form-control">
+                                    </div>
+                                    <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga</label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <input type="number" name="harga" class="form-control <?= (isset($errors['harga'])) ? 'is-invalid' : '' ?>" value="<?= old('harga') ?>">
+                                            <div class="invalid-feedback">
+                                                <?= validation_show_error('harga') ?>
                                             </div>
                                         </div>
-                                        <div class="form-group row mb-4">
-                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi</label>
-                                            <div class="col-sm-12 col-md-7">
-                                                <textarea name="deskripsi" class="summernote"></textarea>
+                                    </div>
+                                    <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi</label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <textarea name="deskripsi" class="form-control summernote <?= (isset($errors['deskripsi'])) ? 'is-invalid' : '' ?>"><?= old('deskripsi') ?></textarea>
+                                            <div class="invalid-feedback">
+                                                <?= validation_show_error('deskripsi') ?>
                                             </div>
                                         </div>
-                                        <div class="form-group row mb-4">
-                                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-                                            <div class="col-sm-12 col-md-7">
-                                                <button class="btn btn-primary">Tambah</button>
-                                            </div>
+                                    </div>
+                                    <div class="form-group row mb-4">
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                                        <div class="col-sm-12 col-md-7">
+                                            <button class="btn btn-primary">Tambah</button>
                                         </div>
-                                    </form>
+                                    </div>
+                                    <?= form_close() ?>
                                 </div>
                             </div>
                         </div>
