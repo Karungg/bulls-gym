@@ -27,7 +27,6 @@
                         <div class="login-brand">
                             <img src="<?= base_url() ?>/assets/img/logo.png" alt="logo" width="100" class="shadow-light rounded-circle">
                         </div>
-
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="row mt-4">
@@ -56,7 +55,6 @@
                                 </div>
                                 <?php
 
-                                helper('form');
                                 $packageModel = new App\Models\Package();
                                 $packages = $packageModel->findAll();
 
@@ -68,8 +66,8 @@
 
                                     <div class="form-group">
                                         <label for="nama_lengkap">Nama Lengkap</label>
-                                        <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap">
-                                        <div class="invalid-feedback">
+                                        <input id="nama_lengkap" type="text" class="form-control" name="nama_lengkap" value="<?= old('nama_lengkap') ?>">
+                                        <div class=" invalid-feedback">
                                             Nama lengkap harus diisi.
                                         </div>
                                     </div>
@@ -77,7 +75,7 @@
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label for="tgl_lahir">Tanggal Lahir</label>
-                                            <input id="tgl_lahir" type="date" class="form-control" name="tgl_lahir">
+                                            <input id="tgl_lahir" type="date" class="form-control" name="tgl_lahir" value="<?= old('tgl_lahir') ?>">
                                             <div class="invalid-feedback">
                                                 Tanggal lahir harus diisi.
                                             </div>
@@ -85,13 +83,13 @@
                                         <div class="form-group col-6">
                                             <label for="jenis_kelamin">Jenis Kelamin</label>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" value="pria" name="jenis_kelamin" id="pria" checked />
+                                                <input class="form-check-input" type="radio" value="pria" name="jenis_kelamin" id="pria" checked value="<?= old('jenis_kelamin') ?>" />
                                                 <label class="form-check-label" for="pria">
                                                     Pria
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" value="wanita" name="jenis_kelamin" id="wanita" />
+                                                <input class="form-check-input" type="radio" value="wanita" name="jenis_kelamin" id="wanita" value="<?= old('jenis_kelamin') ?>" />
                                                 <label class="form-check-label" for="wanita">
                                                     Wanita
                                                 </label>
@@ -104,21 +102,21 @@
 
                                     <div class="form-group">
                                         <label for="alamat">Alamat</label>
-                                        <textarea id="alamat" class="form-control" name="alamat"></textarea>
+                                        <textarea id="alamat" class="form-control" name="alamat"><?= old('alamat') ?></textarea>
                                         <div class="invalid-feedback">Alamat harus diisi.</div>
                                     </div>
 
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label for="no_telp" class="d-block">Nomor Telepon</label>
-                                            <input id="no_telp" type="number" class="form-control" name="no_telp">
+                                            <input id="no_telp" type="number" class="form-control" name="no_telp" value="<?= old('no_telp') ?>">
                                             <div class="invalid-feedback">
                                                 Nomor telepon harus diisi.
                                             </div>
                                         </div>
                                         <div class="form-group col-6">
                                             <label for="no_ktp">Nomor KTP</label>
-                                            <input id="no_ktp" type="number" class="form-control" name="no_ktp">
+                                            <input id="no_ktp" type="number" class="form-control" name="no_ktp" value="<?= old('no_ktp') ?>">
                                             <div class="invalid-feedback">
                                                 Nomor KTP harus diisi.
                                             </div>
@@ -127,14 +125,14 @@
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label for="foto_ktp">Foto KTP</label>
-                                            <input id="foto_ktp" type="file" class="form-control" name="foto_ktp">
+                                            <input id="foto_ktp" type="file" class="form-control" name="foto_ktp" value="<?= old('foto_ktp') ?>">
                                             <div class="invalid-feedback">
                                                 Foto KTP harus diisi.
                                             </div>
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Foto Diri</label>
-                                            <input id="foto_diri" type="file" class="form-control" name="foto_diri">
+                                            <input id="foto_diri" type="file" class="form-control" name="foto_diri" value="<?= old('foto_diri') ?>">
                                             <div class="invalid-feedback">
                                                 Foto diri harus diisi.
                                             </div>
@@ -199,19 +197,31 @@
                                     <div class="form-group">
                                         <label for="email"><?= lang('Auth.email') ?></label>
                                         <input id="email" name="email" type="email" class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" aria-describedby="emailHelp" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>">
+                                        <div class="invalid-feedback">
+                                            <?= validation_show_error('email') ?>
+                                        </div>
                                         <small id="emailHelp" class="form-text text-muted"><?= lang('Auth.weNeverShare') ?></small>
                                     </div>
                                     <div class="form-group">
                                         <label for="username"><?= lang('Auth.username') ?></label>
                                         <input id="username" type="text" class="form-control <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>">
+                                        <div class="invalid-feedback">
+                                            <?= validation_show_error('username') ?>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password"><?= lang('Auth.password') ?></label>
                                         <input id="password" type="password" class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" name="password" placeholder="<?= lang('Auth.password') ?>" autocomplete="off">
+                                        <div class="invalid-feedback">
+                                            <?= validation_show_error('password') ?>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="pass_confirm"><?= lang('Auth.repeatPassword') ?></label>
                                         <input id="pass_confirm" type="password" class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" name="pass_confirm" placeholder="<?= lang('Auth.repeatPassword') ?>" autocomplete="off">
+                                        <div class="invalid-feedback">
+                                            <?= validation_show_error('pass_confirm') ?>
+                                        </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12 text-right">
